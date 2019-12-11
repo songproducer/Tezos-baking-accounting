@@ -27,6 +27,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="/home/leo/pymnt/reports/**tz1ChangeThisTo
 Run:
 python gdaemon.py
 
-Enter 'c' then 'y'
+Enter 'y' then 'c'
 
 Credit for original worksheet, charts and this idea goes to TezWhale.
