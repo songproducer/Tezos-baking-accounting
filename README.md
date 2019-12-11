@@ -31,3 +31,9 @@ Enter 'y' then 'c'
 If you want to know frozen amounts make changes to the addresses in the tzstats API worksheet.
 
 Credit for original worksheet, charts and this idea goes to TezWhale.
+
+## Donations
+
+Donations gratefully accepted
+
+tz1M9YZxNwGsqMXn9k6rNR8hMTA6JGAVgX6X
