@@ -1,11 +1,11 @@
 # Tezos-baking-accounting
 
-##Requirements
-'''Python2.7
+## Requirements
+Python2.7
 pip install python-dateutil
 pip install oauth2client
 pip install gspread
-'''
+
 
 Make a copy of this spreadsheet:
 
