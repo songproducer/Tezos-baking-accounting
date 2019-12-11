@@ -5,7 +5,7 @@ Python2.7
 
 >pip install python-dateutil oauth2client gspread
 
-
+## Setup
 Make a copy of this spreadsheet:
 
 https://docs.google.com/spreadsheets/d/1NzfP5eLVGtNUol72dgo_bWE5qz8teVvHbkGUYMr335U/edit?usp=sharing
@@ -22,7 +22,7 @@ Move gdaemon.py and credentials.json into [TRD](https://github.com/habanoz/tezos
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/leo/pymnt/reports/**tz1ChangeThisToYourBakingAddress**/calculations/credentials.json"
 
-## Running the daemon:
+## Running the daemon
 
 python gdaemon.py
 
