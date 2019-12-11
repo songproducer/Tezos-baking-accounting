@@ -58,7 +58,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gc = gspread.authorize(credentials)
-spreadsheet = gc.open_by_key('1fAdwHjdiP_OO3bxtCrRJ0QpuVfrj3S_aus8y_4D_HmY')
+spreadsheet = gc.open_by_key('')
 
 #setup spreadsheets
 CurrentCycleCSV = spreadsheet.worksheet("CurrentCycleCSV")
