@@ -11,6 +11,8 @@ Make a copy of this spreadsheet:
 
 https://docs.google.com/spreadsheets/d/1NzfP5eLVGtNUol72dgo_bWE5qz8teVvHbkGUYMr335U/edit?usp=sharing
 
+If you want to know frozen amounts make changes to the addresses in the tzstats API worksheet.
+
 Go to share your copy and note the document's ID, copy/paste it between the quotes on line 61:
 spreadsheet = gc.open_by_key('')
 
@@ -26,3 +28,5 @@ Run:
 python gdaemon.py
 
 Enter 'c' then 'y'
+
+Credit for original worksheet, charts and this idea goes to TezWhale.
