@@ -112,6 +112,7 @@ def waitForCycle():
     print "difference is "+format(difference)
     sleep(1)
     print "checking for cycle"
+    gc.login()
     sleep(3)
     print"."
     checkForCycleDifference()
