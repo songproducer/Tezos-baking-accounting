@@ -58,7 +58,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gc = gspread.authorize(credentials)
-spreadsheet = gc.open_by_key('REPLACEME')
+spreadsheet = gc.open_by_key('REPLACE ME')
 
 #setup spreadsheets
 CurrentCycleCSV = spreadsheet.worksheet("CurrentCycleCSV")
@@ -100,18 +100,21 @@ while daemonInputIsValid==False:
             print "Error! Try again.\n"
 
 def waitForCycle():
+
+
+    for x in range(0,960):
+        print format(960-x) + " seconds"
+        sleep(1)
+        if x >10:
+            os.system('clear')
+            print "waiting 15 minutes before checking for cycle update"
+    os.system('clear')
+    print "difference is "+format(difference)
+    sleep(1)
     print "checking for cycle"
     sleep(3)
     print"."
     checkForCycleDifference()
-    print "difference is "+format(difference)
-    for x in range(0,360):
-        print format(360-x) + " seconds"
-        sleep(1)
-        if x >10:
-            os.system('clear')
-            print "waiting 5 minutes before checking for cycle update"
-    os.system('clear')
 
 def checkForCycleDifference():
     #check last row cycle
