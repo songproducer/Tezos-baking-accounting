@@ -101,7 +101,7 @@ while daemonInputIsValid==False:
 
 def waitForCycle():
 
-
+    gc.login()
     for x in range(0,960):
         print format(960-x) + " seconds"
         sleep(1)
