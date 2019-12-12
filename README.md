@@ -28,12 +28,21 @@ python gdaemon.py
 
 Enter 'y' then 'c'
 
+## Using the worksheet
+
+The first row dark blue cells must be manually filled in.
+
 If you want to know frozen amounts make changes to the addresses in the tzstats API worksheet.
 
-Credit for original worksheet, charts and this idea goes to TezWhale.
+Put the sum of your own delegates' rewards * (-1) in the offset column once the row has been filled
 
 ## Donations
+
 
 Donations gratefully accepted
 
 tz1M9YZxNwGsqMXn9k6rNR8hMTA6JGAVgX6X
+
+## Credit
+
+Credit for original worksheet, charts and this idea goes to TezWhale.
