@@ -58,7 +58,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gc = gspread.authorize(credentials)
-spreadsheet = gc.open_by_key('REPLACE ME')
+spreadsheet = gc.open_by_key('REPLACE_ME')
 
 #setup spreadsheets
 CurrentCycleCSV = spreadsheet.worksheet("CurrentCycleCSV")
@@ -141,14 +141,6 @@ def checkForCycleDifference():
     print "."
     os.system('clear')
 
-    #get the current cycle again
-    cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head")
-    cycleJSON = json.loads(cycleResponse.text)
-    for key, value in cycleJSON.items():
-          if key == "cycle":
-            latestCycle = value
-            latestCompleteCycle = value-1
-            print "The current cycle is "+format(latestCompleteCycle)
     #get the difference
     difference = int(lastRowCycle)-latestCompleteCycle
 
