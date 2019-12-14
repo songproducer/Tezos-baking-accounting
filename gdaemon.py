@@ -4,6 +4,7 @@ import csv
 from oauth2client.service_account import ServiceAccountCredentials
 import sys
 
+
 import dateutil.parser
 from dateutil.parser import parse
 import os
@@ -14,6 +15,11 @@ import json
 import requests
 
 import re
+
+import urllib3
+
+urllib3.disable_warnings()
+
 
 print "Loading things, please wait ~10 seconds\n"
 
@@ -77,7 +83,7 @@ print "Nearly there!\n"
 MAINDATAlastRow = len(MAINDATA.col_values(1))
 MAINDATAcurrentRow = MAINDATAlastRow + 1
 #get latest complete cycle
-cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head")
+cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", verify=False)
 cycleJSON = json.loads(cycleResponse.text)
 for key, value in cycleJSON.items():
       if key == "cycle":
@@ -128,7 +134,7 @@ def checkForCycleDifference():
     sleep(5)
     print "."
     #get latest complete cycle
-    cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head")
+    cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", verify=False)
     cycleJSON = json.loads(cycleResponse.text)
     for key, value in cycleJSON.items():
           if key == "cycle":
@@ -227,9 +233,9 @@ def updateSpreadsheets():
     #get the cycle date
     cycle = int(lastRowCycle)+1
     if askWhichCycle == "c":
-        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(cycle))
+        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(cycle), verify=False)
     else:
-        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(askWhichCycle))
+        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(askWhichCycle), verify=False)
     cycleJSON = json.loads(cycleDateResponse.text)
 
     for key, value in cycleJSON.items():
