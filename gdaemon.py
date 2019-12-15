@@ -83,7 +83,7 @@ print "Nearly there!\n"
 MAINDATAlastRow = len(MAINDATA.col_values(1))
 MAINDATAcurrentRow = MAINDATAlastRow + 1
 #get latest complete cycle
-cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", verify=False)
+cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", timeout=60, verify=False)
 cycleJSON = json.loads(cycleResponse.text)
 for key, value in cycleJSON.items():
       if key == "cycle":
@@ -121,7 +121,15 @@ def waitForCycle():
     gc.login()
     sleep(3)
     print"."
-    checkForCycleDifference()
+    try:
+        checkForCycleDifference()
+    except requests.exceptions.ConnectionError as e:
+        print format(e)
+        sleep(10)
+        print "trying again"
+        sleep(5)
+        checkForCycleDifference()
+
 
 def checkForCycleDifference():
     #check last row cycle
@@ -134,7 +142,7 @@ def checkForCycleDifference():
     sleep(5)
     print "."
     #get latest complete cycle
-    cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", verify=False)
+    cycleResponse = requests.get("https://api.tzstats.com/explorer/cycle/head", timeout=60, verify=False)
     cycleJSON = json.loads(cycleResponse.text)
     for key, value in cycleJSON.items():
           if key == "cycle":
@@ -233,9 +241,9 @@ def updateSpreadsheets():
     #get the cycle date
     cycle = int(lastRowCycle)+1
     if askWhichCycle == "c":
-        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(cycle), verify=False)
+        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(cycle), timeout=60, verify=False)
     else:
-        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(askWhichCycle), verify=False)
+        cycleDateResponse = requests.get("https://api.tzstats.com/explorer/cycle/"+format(askWhichCycle), timeout=60, verify=False)
     cycleJSON = json.loads(cycleDateResponse.text)
 
     for key, value in cycleJSON.items():
