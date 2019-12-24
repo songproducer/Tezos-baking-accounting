@@ -64,7 +64,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gc = gspread.authorize(credentials)
-spreadsheet = gc.open_by_key('REPLACE_ME')
+spreadsheet = gc.open_by_key('Replace_Me')
 
 #setup spreadsheets
 CurrentCycleCSV = spreadsheet.worksheet("CurrentCycleCSV")
@@ -121,14 +121,7 @@ def waitForCycle():
     gc.login()
     sleep(3)
     print"."
-    try:
-        checkForCycleDifference()
-    except requests.exceptions.ConnectionError as e:
-        print format(e)
-        sleep(10)
-        print "trying again"
-        sleep(5)
-        checkForCycleDifference()
+    checkForCycleDifference()
 
 
 def checkForCycleDifference():
