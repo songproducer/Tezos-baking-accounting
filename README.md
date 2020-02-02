@@ -10,7 +10,7 @@ Make a copy of this spreadsheet:
 
 https://docs.google.com/spreadsheets/d/1NzfP5eLVGtNUol72dgo_bWE5qz8teVvHbkGUYMr335U/edit?usp=sharing
 
-Go to share your copy and note the document's ID, copy/paste it between the quotes on line 61:
+Go to share your copy and note the document's ID, copy/paste it between the quotes on line 67:
 
 spreadsheet = gc.open_by_key('')
 

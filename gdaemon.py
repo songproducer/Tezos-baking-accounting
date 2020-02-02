@@ -64,7 +64,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gc = gspread.authorize(credentials)
-spreadsheet = gc.open_by_key('Replace_Me')
+spreadsheet = gc.open_by_key('REPLACE ME')
 
 #setup spreadsheets
 CurrentCycleCSV = spreadsheet.worksheet("CurrentCycleCSV")
@@ -227,7 +227,7 @@ def updateSpreadsheets():
     stakingBalance = float(CurrentCycleCSV.acell('C2').value)/1000000
     amount = CurrentCycleValue.acell('B2').value
     fee = CurrentCycleValue.acell('B3').value
-    totalBakedCycle = float(CurrentCycleCSV.acell('F2').value)/1000000
+    totalBakedCycle = float(CurrentCycleCSV.acell('G2').value)/1000000
 
 
 
